@@ -7,7 +7,7 @@ function App() {
         <div style={{ width: '100%', height: 300, backgroundColor: "lightgray" }}>
             <LayoutComponent
                 test='1'
-                size='none'
+                size='pw50 wx500 wn300 ph40'
                 style={{ backgroundColor: "yellow" }}
             >
                 <h1>HCSS</h1>

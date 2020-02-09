@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-//----------  useHcss ----------
+//------------------------------  useHcss ------------------------------
+
 function useHcss(str) {
     const _array = [];
 
     useEffect(() => {
-        _processStr(str);
+        processStr(str);
     }, []);
 
-    const _processStr = str => {
+    function processStr(str) {
         const json = str.split(" ");
 
         json.forEach(function(item) {
@@ -26,11 +27,13 @@ function useHcss(str) {
     return _array;
 };
 
-//---------- useSize ----------
+//------------------------------ useSize ------------------------------
+
 function useSize(str) {
     const object = {}
     const size = useHcss(str);
 
+    // func calc
     function calc(size) {
         size.map((item) => {
             // width
@@ -47,20 +50,22 @@ function useSize(str) {
     }
 
     useEffect(() => {
-        console.log(size)
-      calc(size)
+        //console.log(size)
+        calc(size)
     },[])
 
     return object;
   };
 
-//---------- Component ----------
+//------------------------------ Component ------------------------------
+
 export default function Component(props) {
     // size
     const hcssSize = useSize(props.size || '');
     const [size, setSize] = useState()
 
     useEffect(() => {
+        // size
         console.log(props.size)
         if (props.size !== 'none') { setSize(hcssSize) }
         if (props.size === undefined) { setSize({width: '100%', height: '100%'}) }
