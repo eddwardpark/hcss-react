@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import LayoutComponent from './components/LayoutComponent'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <div style={{ width: '100%', height: 300, backgroundColor: "lightgray" }}>
+            <LayoutComponent
+                test='1'
+                size='none'
+                style={{ backgroundColor: "yellow" }}
+            >
+                <h1>HCSS</h1>
+            </LayoutComponent>
+        </div>
+    );
 }
 
 export default App;
