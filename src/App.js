@@ -8,7 +8,7 @@ function App() {
             <LayoutComponent
                 size='pw50 wx500 wn300 ph60 hx400 hn300'
                 color='bc-green300 fc-yellow500 bdc-lightblue700'
-                space='mx16 py24'
+                space='ml4 mr8 mt16 mb24 pl3 pr6 pt9 pb12'
                 style={{ border: '8px solid'}}
             >
                 <h1>Layout</h1>

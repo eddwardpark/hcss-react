@@ -191,10 +191,18 @@ function useSpace(str) {
             if (item.ma) { object.margin = Number(item.ma) }
             if (item.mx) { object.marginLeft = Number(item.mx); object.marginRight = Number(item.mx)}
             if (item.my) { object.marginTop = Number(item.my); object.marginBottom = Number(item.my)}
+            if (item.ml) { object.marginLeft = Number(item.ml) }
+            if (item.mr) { object.marginRight = Number(item.mr) }
+            if (item.mt) { object.marginTop = Number(item.mt) }
+            if (item.mb) { object.marginBottom = Number(item.mb) }
             // padding
             if (item.pa) { object.padding = Number(item.pa) }
             if (item.px) { object.paddingLeft = Number(item.px); object.paddingRight = Number(item.px)}
             if (item.py) { object.paddingTop = Number(item.py); object.paddingBottom = Number(item.py)}
+            if (item.pl) { object.paddingLeft = Number(item.pl) }
+            if (item.pr) { object.paddingRight = Number(item.pr) }
+            if (item.pt) { object.paddingTop = Number(item.pt) }
+            if (item.pb) { object.paddingBottom = Number(item.pb) }
         })
     }
 
