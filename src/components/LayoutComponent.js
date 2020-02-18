@@ -1,5 +1,50 @@
 import React, { useState, useEffect } from "react";
 
+//------------------------------ Component ------------------------------
+
+export default function Component(props) {
+    // size
+    const uSize = useSize(props.size || '');
+    const [size, setSize] = useState()
+    // color
+    const uColor = useColor(props.color);
+    const [color, setColor] = useState()
+    // space
+    const uSpace = useSpace(props.space);
+    const [space, setSpace] = useState()
+
+    useEffect(() => {
+        // size
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.size ]', props.size )
+        if (props.size !== 'none') { setSize(uSize) }
+        if (props.size === undefined) { setSize({width: '100%', height: '100%'}) }
+        // color
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.color ]', props.color )
+        if (props.color) { setColor(uColor) }
+        // space
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.space ]', props.space )
+        if (props.space) { setSpace(uSpace) }
+    }, []);
+
+    return (
+        <div
+            {...props}
+            style={Object.assign({},
+                size,
+                color,
+                space,
+                props.style
+            )}
+        >
+            {props.children}
+        </div>
+    );
+}
+
+
+
+
+
 //------------------------------  useHcss ------------------------------
 
 function useHcss(str) {
@@ -63,7 +108,7 @@ function useSize(str) {
     }
 
     useEffect(() => {
-        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ size ]', size )
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ size ]', size )
         process(size)
     },[])
 
@@ -124,9 +169,8 @@ function useColor(str) {
     }
 
     useEffect(() => {
-        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ color ]', color )
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ color ]', color )
         process(color)
-        console.log(object)
     },[])
 
 
@@ -134,42 +178,35 @@ function useColor(str) {
     return object;
 }
 
-//------------------------------ Component ------------------------------
+//------------------------------ useSpace ------------------------------
 
-export default function Component(props) {
-    // size
-    const uSize = useSize(props.size || '');
-    const [size, setSize] = useState()
-    // color
-    const uColor = useColor(props.color);
-    const [color, setColor] = useState()
+function useSpace(str) {
+    const object = {}
+    const space = useHcss(str);
+
+    // func process
+    function process(space) {
+        space.map((item) => {
+            // margin
+            if (item.ma) { object.margin = Number(item.ma) }
+            if (item.mx) { object.marginLeft = Number(item.mx); object.marginRight = Number(item.mx)}
+            if (item.my) { object.marginTop = Number(item.my); object.marginBottom = Number(item.my)}
+            // padding
+            if (item.pa) { object.padding = Number(item.pa) }
+            if (item.px) { object.paddingLeft = Number(item.px); object.paddingRight = Number(item.px)}
+            if (item.py) { object.paddingTop = Number(item.py); object.paddingBottom = Number(item.py)}
+        })
+    }
 
     useEffect(() => {
-        // size
-        console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.size ]', props.size )
-        if (props.size !== 'none') { setSize(uSize) }
-        if (props.size === undefined) { setSize({width: '100%', height: '100%'}) }
-        // color
-        console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.color ]', props.color )
-        if (props.color) { setColor(uColor) }
-        console.log(color)
+        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ space ]', space )
+        process(space)
+    },[])
 
-    }, []);
-
-    return (
-        <div
-            {...props}
-            style={Object.assign({},
-                size,
-                color,
-                props.style
-            )}
-        >
-            {props.children}
-        </div>
-    );
+    return object;
 }
 
+//------------------------------ color list ------------------------------
 
 const colorList = {
     red50: '#FFEBEE',
