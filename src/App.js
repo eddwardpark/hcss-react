@@ -9,7 +9,7 @@ function App() {
                 test='1'
                 size='pw50 wx500 wn300 ph60 hx400 hn300'
                 color='bc-red100'
-                style={{ backgroundColor: "yellow" }}
+                style={{  }}
             >
                 <h1>Layout</h1>
             </LayoutComponent>

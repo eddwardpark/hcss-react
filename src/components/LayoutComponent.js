@@ -66,16 +66,23 @@ function useColor(str) {
     // func process
     function process(color) {
         color.map((item) => {
+            const key = Object.keys(item)
+            console.log(key)
             // width
-            //if (item.['bc-red']) { object.width = `${item.pw}%` }
-
+            if (key[0] === 'bc-red') {
+                console.log('xxx')
+                object.backgroundColor = 'red'
+            }
         })
     }
 
     useEffect(() => {
         console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ color ]', color )
         process(color)
+        console.log(object)
     },[])
+
+
 
     return object;
 }
@@ -87,7 +94,7 @@ export default function Component(props) {
     const uSize = useSize(props.size || '');
     const [size, setSize] = useState()
     // color
-    const uColor = useColor(props.color || '');
+    const uColor = useColor(props.color);
     const [color, setColor] = useState()
 
     useEffect(() => {
@@ -98,6 +105,7 @@ export default function Component(props) {
         // color
         console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.color ]', props.color )
         if (props.color) { setColor(uColor) }
+        console.log(color)
 
     }, []);
 
