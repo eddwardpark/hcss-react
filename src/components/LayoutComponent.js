@@ -33,8 +33,8 @@ function useSize(str) {
     const object = {}
     const size = useHcss(str);
 
-    // func calc
-    function calc(size) {
+    // func process
+    function process(size) {
         size.map((item) => {
             // width
             if (item.pw) { object.width = `${item.pw}%` }
@@ -50,25 +50,54 @@ function useSize(str) {
     }
 
     useEffect(() => {
-        //console.log(size)
-        calc(size)
+        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ size ]', size )
+        process(size)
     },[])
 
     return object;
-  };
+}
+
+//------------------------------ useColor ------------------------------
+
+function useColor(str) {
+    const object = {}
+    const color = useHcss(str);
+
+    // func process
+    function process(color) {
+        color.map((item) => {
+            // width
+            //if (item.['bc-red']) { object.width = `${item.pw}%` }
+
+        })
+    }
+
+    useEffect(() => {
+        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ color ]', color )
+        process(color)
+    },[])
+
+    return object;
+}
 
 //------------------------------ Component ------------------------------
 
 export default function Component(props) {
     // size
-    const hcssSize = useSize(props.size || '');
+    const uSize = useSize(props.size || '');
     const [size, setSize] = useState()
+    // color
+    const uColor = useColor(props.color || '');
+    const [color, setColor] = useState()
 
     useEffect(() => {
         // size
-        console.log(props.size)
-        if (props.size !== 'none') { setSize(hcssSize) }
+        console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.size ]', props.size )
+        if (props.size !== 'none') { setSize(uSize) }
         if (props.size === undefined) { setSize({width: '100%', height: '100%'}) }
+        // color
+        console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.color ]', props.color )
+        if (props.color) { setColor(uColor) }
 
     }, []);
 
@@ -77,6 +106,7 @@ export default function Component(props) {
             {...props}
             style={Object.assign({},
                 size,
+                color,
                 props.style
             )}
         >
