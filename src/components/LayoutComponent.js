@@ -233,12 +233,17 @@ function useBorder(str) {
             const key = Object.keys(item)
             const value = Object.values(item)
             // border radius
-            //if (item.ma) { object.margin = Number(item.ma) }
             if (key[0] === 'bd-ra') { object.borderRadius = Number(value) }
             if (key[0] === 'bd-rtl') { object.borderTopLeftRadius = Number(value) }
             if (key[0] === 'bd-rtr') { object.borderTopRightRadius = Number(value) }
             if (key[0] === 'bd-rbl') { object.borderBottomLeftRadius = Number(value) }
             if (key[0] === 'bd-rbr') { object.borderBottomRightRadius = Number(value) }
+            // border solid
+            if (key[0] === 'bd-s') { object.border = `${Number(value)}px solid` }
+            if (key[0] === 'bd-sl') { object.borderLeftWidth = Number(value); object.borderLeftStyle = 'solid' }
+            if (key[0] === 'bd-sr') { object.borderRightWidth = Number(value); object.borderRightStyle = 'solid' }
+            if (key[0] === 'bd-st') { object.borderTopWidth = Number(value); object.borderTopStyle = 'solid' }
+            if (key[0] === 'bd-sb') { object.borderBottomWidth = Number(value); object.borderBottomStyle = 'solid' }
         })
     }
 
