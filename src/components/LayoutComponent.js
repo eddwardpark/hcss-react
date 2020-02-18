@@ -15,6 +15,9 @@ export default function Component(props) {
     // border
     const uBorder = useBorder(props.border);
     const [border, setBorder] = useState()
+    // font
+    const uFont = useFont(props.font);
+    const [font, setFont] = useState()
 
     useEffect(() => {
         // size
@@ -30,6 +33,9 @@ export default function Component(props) {
         // border
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.border ]', props.border )
         if (props.border) { setBorder(uBorder) }
+        // font
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.font ]', props.font )
+        if (props.font) { setFont(uFont) }
     }, []);
 
     return (
@@ -40,6 +46,7 @@ export default function Component(props) {
                 color,
                 space,
                 border,
+                font,
                 props.style
             )}
         >
@@ -250,6 +257,35 @@ function useBorder(str) {
     useEffect(() => {
         console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ border ]', border )
         process(border)
+    },[])
+
+    return object;
+}
+
+//------------------------------ useFont ------------------------------
+
+function useFont(str) {
+    const object = {}
+    const font = useHcss(str);
+
+    // func process
+    function process(font) {
+        font.map((item) => {
+            const key = Object.keys(item)
+            const value = Object.values(item)
+            // font
+            if (key[0] === 'fw') { object.fontWeight = Number(value) }
+            if (key[0] === 'fs') { object.fontSize = Number(value) }
+            if (key[0] === 'fa-left') { object.textAlign = 'left' }
+            if (key[0] === 'fa-right') { object.textAlign = 'right' }
+            if (key[0] === 'fa-center') { object.textAlign = 'center' }
+            if (key[0] === 'fa-justify') { object.textAlign = 'justify' }
+        })
+    }
+
+    useEffect(() => {
+        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ font ]', font )
+        process(font)
     },[])
 
     return object;
