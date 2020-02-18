@@ -8,8 +8,8 @@ function App() {
             <LayoutComponent
                 test='1'
                 size='pw50 wx500 wn300 ph60 hx400 hn300'
-                color='bc-red100'
-                style={{  }}
+                color='bc-red300 fc-yellow300 bdc-blue900'
+                style={{ border: '8px solid' }}
             >
                 <h1>Layout</h1>
             </LayoutComponent>
