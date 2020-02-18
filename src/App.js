@@ -11,6 +11,7 @@ function App() {
                 space='ml4 mr8 mt16 mb24 pl3 pr6 pt9 pb12'
                 border='bd-rtl30 bd-rtr20 bd-rbl30 bd-rbr40 bd-sl4 bd-sr8 bd-st12 bd-sb16'
                 font='fw900 fs24 fa-center'
+                shadow='shadow-m5'
                 style={{  }}
             >
                 <div>Layout</div>

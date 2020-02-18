@@ -18,6 +18,9 @@ export default function Component(props) {
     // font
     const uFont = useFont(props.font);
     const [font, setFont] = useState()
+    // shadow
+    const uShadow = useShadow(props.shadow);
+    const [shadow, setShadow] = useState()
 
     useEffect(() => {
         // size
@@ -36,6 +39,9 @@ export default function Component(props) {
         // font
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.font ]', props.font )
         if (props.font) { setFont(uFont) }
+        // shadow
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.shadow ]', props.shadow )
+        if (props.shadow) { setShadow(uShadow) }
     }, []);
 
     return (
@@ -47,6 +53,7 @@ export default function Component(props) {
                 space,
                 border,
                 font,
+                shadow,
                 props.style
             )}
         >
@@ -255,7 +262,7 @@ function useBorder(str) {
     }
 
     useEffect(() => {
-        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ border ]', border )
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ border ]', border )
         process(border)
     },[])
 
@@ -284,10 +291,35 @@ function useFont(str) {
     }
 
     useEffect(() => {
-        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ font ]', font )
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ font ]', font )
         process(font)
     },[])
 
+    return object;
+}
+
+//------------------------------ useShadow ------------------------------
+
+function useShadow(str) {
+    const object = {}
+    const shadow = useHcss(str);
+
+    // func process
+    function process(shadow) {
+        shadow.map((item) => {
+            const key = Object.keys(item)
+            const value = Object.values(item)
+            // shadow
+            if (key[0] === 'shadow-s') { object.boxShadow = `0px 0px 5px rgba(0, 0, 0, ${0.1 * Number(value)}` }
+            if (key[0] === 'shadow-m') { object.boxShadow = `0px 0px 10px rgba(0, 0, 0, ${0.1 * Number(value)}` }
+            if (key[0] === 'shadow-l') { object.boxShadow = `0px 0px 15px rgba(0, 0, 0, ${0.1 * Number(value)}` }
+        })
+    }
+
+    useEffect(() => {
+        //console.log('%c%s', 'color: green; background: transparent; shadow-size: 10px;', '[ shadow ]', shadow )
+        process(shadow)
+    },[])
     return object;
 }
 
