@@ -12,6 +12,9 @@ export default function Component(props) {
     // space
     const uSpace = useSpace(props.space);
     const [space, setSpace] = useState()
+    // border
+    const uBorder = useBorder(props.border);
+    const [border, setBorder] = useState()
 
     useEffect(() => {
         // size
@@ -24,6 +27,9 @@ export default function Component(props) {
         // space
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.space ]', props.space )
         if (props.space) { setSpace(uSpace) }
+        // border
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.border ]', props.border )
+        if (props.border) { setBorder(uBorder) }
     }, []);
 
     return (
@@ -33,6 +39,7 @@ export default function Component(props) {
                 size,
                 color,
                 space,
+                border,
                 props.style
             )}
         >
@@ -207,8 +214,37 @@ function useSpace(str) {
     }
 
     useEffect(() => {
-        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ space ]', space )
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ space ]', space )
         process(space)
+    },[])
+
+    return object;
+}
+
+//------------------------------ useBorder ------------------------------
+
+function useBorder(str) {
+    const object = {}
+    const border = useHcss(str);
+
+    // func process
+    function process(border) {
+        border.map((item) => {
+            const key = Object.keys(item)
+            const value = Object.values(item)
+            // border radius
+            //if (item.ma) { object.margin = Number(item.ma) }
+            if (key[0] === 'bd-ra') { object.borderRadius = Number(value) }
+            if (key[0] === 'bd-rtl') { object.borderTopLeftRadius = Number(value) }
+            if (key[0] === 'bd-rtr') { object.borderTopRightRadius = Number(value) }
+            if (key[0] === 'bd-rbl') { object.borderBottomLeftRadius = Number(value) }
+            if (key[0] === 'bd-rbr') { object.borderBottomRightRadius = Number(value) }
+        })
+    }
+
+    useEffect(() => {
+        console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ border ]', border )
+        process(border)
     },[])
 
     return object;
