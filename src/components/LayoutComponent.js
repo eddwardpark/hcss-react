@@ -413,6 +413,30 @@ function usePosition(str) {
     return object;
 }
 
+// FUNC [ useGlobal ]
+function useGlobal(str) {
+    const object = {}
+    const global = useHcss(str);
+
+    // func process
+    function process(global) {
+        global.map((item) => {
+            const key = Object.keys(item)
+            const value = Object.values(item)
+            // global
+            if (key[0] === 'pos-relative') { object.global = 'relative' }
+            if (key[0] === 'pos-absolute') { object.global = 'absolute' }
+            if (key[0] === 'pos-fixed') { object.global = 'fixed' }
+        })
+    }
+    //
+    useEffect(() => {
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ global ]', global )
+        process(global)
+    },[])
+    return object;
+}
+
 // VAL [ colorList ]
 const colorList = {
     red50: '#FFEBEE',

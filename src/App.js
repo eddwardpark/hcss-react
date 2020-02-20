@@ -22,7 +22,7 @@ function App() {
                     Layout1
                 </LayoutComponent>
                 <LayoutComponent
-                    position='pos-absolute'
+                    position='pos-fixed'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout2
