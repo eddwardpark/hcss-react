@@ -1,0 +1,30 @@
+{
+  "name": "@hcss/hcss-react-component",
+  "version": "1.0.2",
+  "description": "HCSS REACT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddwardpark/hcss-react.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "hcss"
+  ],
+  "author": "edward park <eddwardpark@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eddwardpark/hcss-react/issues"
+  },
+  "homepage": "https://github.com/eddwardpark/hcss-react/blob/master/README.md",
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/preset-react": "^7.8.3"
+  }
+}
