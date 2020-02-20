@@ -121,7 +121,7 @@ function useHcss(str) {
                 _array.push(obj)
             }
         });
-        console.log(_array)
+        //console.log(_array)
     };
 
     return _array;
@@ -403,6 +403,16 @@ function usePosition(str) {
             if (key[0] === 'pos-relative') { object.position = 'relative' }
             if (key[0] === 'pos-absolute') { object.position = 'absolute' }
             if (key[0] === 'pos-fixed') { object.position = 'fixed' }
+            if (key[0] === 'pos-left') { object.top = '0%'; object.bottom = '0%'; object.left = '0%'; object.right = 'auto'; }
+            if (key[0] === 'pos-right') { object.top = '0%'; object.bottom = '0%'; object.left = 'auto'; object.right = '0%'; }
+            if (key[0] === 'pos-top') { object.top = '0%'; object.bottom = 'auto'; object.left = '0%'; object.right = '0%'; }
+            if (key[0] === 'pos-bottom') { object.top = 'auto'; object.bottom = '0%'; object.left = '0%'; object.right = '0%'; }
+            if (key[0] === 'pos-top-left') { object.top = '0%'; object.bottom = 'auto'; object.left = '0%'; object.right = 'auto'; }
+            if (key[0] === 'pos-top-right') { object.top = '0%'; object.bottom = 'auto'; object.left = 'auto'; object.right = '0%'; }
+            if (key[0] === 'pos-bottom-left') { object.top = 'auto'; object.bottom = '0%'; object.left = '0%'; object.right = 'auto'; }
+            if (key[0] === 'pos-bottom-right') { object.top = 'auto'; object.bottom = '0%'; object.left = 'auto'; object.right = '0%'; }
+            if (key[0] === 'pos-z-') { object.zIndex = -Number(value) }
+            if (key[0] === 'pos-z') { object.zIndex = Number(value) }
         })
     }
     //
@@ -424,9 +434,9 @@ function useGlobal(str) {
             const key = Object.keys(item)
             const value = Object.values(item)
             // global
-            if (key[0] === 'pos-relative') { object.global = 'relative' }
-            if (key[0] === 'pos-absolute') { object.global = 'absolute' }
-            if (key[0] === 'pos-fixed') { object.global = 'fixed' }
+            if (key[0] === '') { object.global = '' }
+
+
         })
     }
     //
