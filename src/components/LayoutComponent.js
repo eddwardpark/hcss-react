@@ -7,22 +7,22 @@ export default function Component(props) {
     const uSize = useSize(props.size || '');
     const [size, setSize] = useState()
     // color
-    const uColor = useColor(props.color);
+    const uColor = useColor(props.color || '');
     const [color, setColor] = useState()
     // space
-    const uSpace = useSpace(props.space);
+    const uSpace = useSpace(props.space || '');
     const [space, setSpace] = useState()
     // border
-    const uBorder = useBorder(props.border);
+    const uBorder = useBorder(props.border || '');
     const [border, setBorder] = useState()
     // font
-    const uFont = useFont(props.font);
+    const uFont = useFont(props.font || '');
     const [font, setFont] = useState()
     // shadow
-    const uShadow = useShadow(props.shadow);
+    const uShadow = useShadow(props.shadow || '');
     const [shadow, setShadow] = useState()
     // layout
-    const uLayout = useLayout(props.layout);
+    const uLayout = useLayout(props.layout || '');
     const [layout, setLayout] = useState()
 
     // EFFECT
@@ -349,6 +349,7 @@ function useLayout(str) {
             if (key[0] === 'x-je') { object.justifyContent = 'flex-end'; }
             if (key[0] === 'x-jb') { object.justifyContent = 'space-between'; }
             if (key[0] === 'x-jt') { object.justifyContent = 'space-around'; }
+
         })
     }
     //

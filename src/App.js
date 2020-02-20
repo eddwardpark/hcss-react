@@ -15,9 +15,9 @@ function App() {
                 layout='x-hor x-ac x-jt'
                 style={{  }}
             >
-                <div style={{ width: 100, height: 50, backgroundColor: '#d1d1d1', margin: 4 }}>Layout</div>
-                <div style={{ width: 100, height: 50, backgroundColor: '#d1d1d1', margin: 4 }}>Layout</div>
-                <div style={{ width: 100, height: 50, backgroundColor: '#d1d1d1', margin: 4 }}>Layout</div>
+                <LayoutComponent style={{ width: 100, height: 50, backgroundColor: '#d1d1d1', margin: 4 }}>Layout</LayoutComponent>
+                <LayoutComponent style={{ width: 100, height: 50, backgroundColor: '#d1d1d1', margin: 4 }}>Layout</LayoutComponent>
+                <LayoutComponent style={{ width: 100, height: 50, backgroundColor: '#d1d1d1', margin: 4 }}>Layout</LayoutComponent>
             </LayoutComponent>
         </div>
     );
