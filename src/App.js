@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import LayoutComponent from './components/LayoutComponent'
+=======
+import HcssComponent from './lib/HcssComponent'
+>>>>>>> parent of b32c403... fix #2
 
 function App() {
 
