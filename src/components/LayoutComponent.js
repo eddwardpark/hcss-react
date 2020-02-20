@@ -27,6 +27,9 @@ export default function Component(props) {
     // position
     const uPosition = usePosition(props.position || '');
     const [position, setPosition] = useState()
+    // global
+    const uGlobal = useGlobal(props.global || '');
+    const [global, setGlobal] = useState()
 
     // EFFECT
     useEffect(() => {
@@ -55,6 +58,9 @@ export default function Component(props) {
         // position
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.position ]', props.position )
         if (props.position) { setPosition(uPosition) }
+        // global
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.global ]', props.global )
+        if (props.global) { setGlobal(uGlobal) }
     }, []);
     // RENDER
     return (
@@ -69,6 +75,7 @@ export default function Component(props) {
                 shadow,
                 layout,
                 position,
+                global,
                 props.style
             )}
         >
