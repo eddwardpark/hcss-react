@@ -27,9 +27,9 @@ export default function Component(props) {
     // position
     const uPosition = usePosition(props.position || '');
     const [position, setPosition] = useState()
-    // global
-    const uGlobal = useGlobal(props.global || '');
-    const [global, setGlobal] = useState()
+    // display
+    const uDisplay = useDisplay(props.display || '');
+    const [display, setDisplay] = useState()
 
     // EFFECT
     useEffect(() => {
@@ -58,9 +58,9 @@ export default function Component(props) {
         // position
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.position ]', props.position )
         if (props.position) { setPosition(uPosition) }
-        // global
-        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.global ]', props.global )
-        if (props.global) { setGlobal(uGlobal) }
+        // display
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.display ]', props.display )
+        if (props.display) { setDisplay(uDisplay) }
     }, []);
     // RENDER
     return (
@@ -75,7 +75,7 @@ export default function Component(props) {
                 shadow,
                 layout,
                 position,
-                global,
+                display,
                 props.style
             )}
         >
@@ -423,26 +423,34 @@ function usePosition(str) {
     return object;
 }
 
-// FUNC [ useGlobal ]
-function useGlobal(str) {
+// FUNC [ useDisplay ]
+function useDisplay(str) {
     const object = {}
-    const global = useHcss(str);
+    const display = useHcss(str);
 
     // func process
-    function process(global) {
-        global.map((item) => {
+    function process(display) {
+        display.map((item) => {
             const key = Object.keys(item)
             const value = Object.values(item)
-            // global
-            if (key[0] === '') { object.global = '' }
-
+            // display
+            if (key[0] === 'img-cover') { object.objectFit = 'cover' }
+            if (key[0] === 'overflow-visible') { object.overflow = 'visible' }
+            if (key[0] === 'overflow-hidden') { object.overflow = 'hidden' }
+            if (key[0] === 'overflow-scroll') { object.overflow = 'scroll' }
+            if (key[0] === 'overflow-auto') { object.overflow = 'auto' }
+            if (key[0] === 'display-flex') { object.display = 'flex' }
+            if (key[0] === 'display-none') { object.display = 'none' }
+            if (key[0] === 'display-block') { object.display = 'block' }
+            if (key[0] === 'display-inline-block') { object.display = 'inline-block' }
+            if (key[0] === 'display-inline') { object.display = 'inline' }
 
         })
     }
     //
     useEffect(() => {
-        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ global ]', global )
-        process(global)
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ display ]', display )
+        process(display)
     },[])
     return object;
 }

@@ -12,41 +12,42 @@ function App() {
                 border='bd-rtl30 bd-rtr20 bd-rbl30 bd-rbr40 bd-sl4 bd-sr8 bd-st12 bd-sb16'
                 font='fw900 fs12 fa-center'
                 shadow='shadow-m5'
-                layout='x-hor x-wrap x-wrap-between'
+                layout='x-hor'
                 position='pos-relative'
+                display='overflow-scroll'
             >
                 <LayoutComponent
-
+                    layout='x-scroll'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout1
                 </LayoutComponent>
                 <LayoutComponent
-                    position='pos-absolute pos-right pos-z-1'
+                    layout='x-scroll'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout2
                 </LayoutComponent>
                 <LayoutComponent
-
+                    layout='x-scroll'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout3
                 </LayoutComponent>
                 <LayoutComponent
-
+                    layout='x-scroll'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout4
                 </LayoutComponent>
                 <LayoutComponent
-
+                    layout='x-scroll'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout5
                 </LayoutComponent>
                 <LayoutComponent
-
+                    layout='x-scroll'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout6
