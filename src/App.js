@@ -1,5 +1,5 @@
 import React from 'react';
-import HcssComponent from './lib/HcssComponent'
+import HcssComponent from './component/HcssComponent'
 
 function App() {
 
