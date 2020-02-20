@@ -12,7 +12,7 @@ function App() {
                 border='bd-rtl30 bd-rtr20 bd-rbl30 bd-rbr40 bd-sl4 bd-sr8 bd-st12 bd-sb16'
                 font='fw900 fs12 fa-center'
                 shadow='shadow-m5'
-                layout='x-hor x-ac x-jt x-wrap'
+                layout='x-hor x-wrap x-wrap-between'
                 style={{  }}
             >
                 <LayoutComponent

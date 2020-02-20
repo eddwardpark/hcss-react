@@ -359,6 +359,12 @@ function useLayout(str) {
             if (key[0] === 'x-wrap') { object.flexWrap = 'wrap' }
             if (key[0] === 'x-nowrap') { object.flexWrap = 'nowrap' }
             if (key[0] === 'x-wrap-reverse') { object.flexWrap = 'wrap-reverse' }
+            if (key[0] === 'x-wrap-start') { object.alignContent = 'flex-start' }
+            if (key[0] === 'x-wrap-center') { object.alignContent = 'flex-center' }
+            if (key[0] === 'x-wrap-end') { object.alignContent = 'flex-end' }
+            if (key[0] === 'x-wrap-stretch') { object.alignContent = 'flex-stretch' }
+            if (key[0] === 'x-wrap-between') { object.alignContent = 'flex-between' }
+            if (key[0] === 'x-wrap-around') { object.alignContent = 'flex-around' }
 
         })
     }
