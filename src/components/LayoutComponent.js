@@ -339,16 +339,26 @@ function useLayout(str) {
             if (key[0] === 'fxv') { object.display = 'flex'; object.flexDirection = 'column'; object.justifyContent = 'center'; object.alignItems = 'center'; }
             if (key[0] === 'x-hor') { object.display = 'flex'; object.flexDirection = 'row'; }
             if (key[0] === 'x-ver') { object.display = 'flex'; object.flexDirection = 'column'; }
-            if (key[0] === 'x-as') { object.alignItems = 'flex-start'; }
-            if (key[0] === 'x-ac') { object.alignItems = 'center'; }
-            if (key[0] === 'x-ae') { object.alignItems = 'flex-end'; }
-            if (key[0] === 'x-ab') { object.alignItems = 'baseline'; }
-            if (key[0] === 'x-at') { object.alignItems = 'stretch'; }
-            if (key[0] === 'x-js') { object.justifyContent = 'flex-start'; }
-            if (key[0] === 'x-jc') { object.justifyContent = 'center'; }
-            if (key[0] === 'x-je') { object.justifyContent = 'flex-end'; }
-            if (key[0] === 'x-jb') { object.justifyContent = 'space-between'; }
-            if (key[0] === 'x-jt') { object.justifyContent = 'space-around'; }
+            if (key[0] === 'x-as') { object.alignItems = 'flex-start' }
+            if (key[0] === 'x-ac') { object.alignItems = 'center' }
+            if (key[0] === 'x-ae') { object.alignItems = 'flex-end' }
+            if (key[0] === 'x-ab') { object.alignItems = 'baseline' }
+            if (key[0] === 'x-at') { object.alignItems = 'stretch' }
+            if (key[0] === 'x-js') { object.justifyContent = 'flex-start' }
+            if (key[0] === 'x-jc') { object.justifyContent = 'center' }
+            if (key[0] === 'x-je') { object.justifyContent = 'flex-end' }
+            if (key[0] === 'x-jb') { object.justifyContent = 'space-between' }
+            if (key[0] === 'x-jt') { object.justifyContent = 'space-around' }
+            if (key[0] === 'x-grow') { object.flexGrow = Number(value) }
+            if (key[0] === 'x-order') { object.order = Number(value) }
+            if (key[0] === 'x-shrink-need') { object.flex = '0 auto' }
+            if (key[0] === 'x-shrink-possible') { object.flex = '1' }
+            if (key[0] === 'x-shrink-not') { object.flex = '0 0 auto' }
+            if (key[0] === 'x-scroll') { object.flex = '0 0 auto' }
+            if (key[0] === 'x-scroll') { object.flex = '0 0 auto' }
+            if (key[0] === 'x-wrap') { object.flexWrap = 'wrap' }
+            if (key[0] === 'x-nowrap') { object.flexWrap = 'nowrap' }
+            if (key[0] === 'x-wrap-reverse') { object.flexWrap = 'wrap-reverse' }
 
         })
     }
