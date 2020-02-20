@@ -1,0 +1,1 @@
+export { HcssComponent as default } from "./HcssComponent";
