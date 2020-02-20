@@ -13,40 +13,40 @@ function App() {
                 font='fw900 fs12 fa-center'
                 shadow='shadow-m5'
                 layout='x-hor x-wrap x-wrap-between'
-                style={{  }}
+                position='pos-relative'
             >
                 <LayoutComponent
-                    layout=''
+
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout1
                 </LayoutComponent>
                 <LayoutComponent
-                    layout=''
+                    position='pos-absolute'
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout2
                 </LayoutComponent>
                 <LayoutComponent
-                    layout=''
+
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout3
                 </LayoutComponent>
                 <LayoutComponent
-                    layout=''
+
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout4
                 </LayoutComponent>
                 <LayoutComponent
-                    layout=''
+
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout5
                 </LayoutComponent>
                 <LayoutComponent
-                    layout=''
+
                     style={{ width: 200, height: 40, backgroundColor: '#d1d1d1', margin: 4 }}
                 >
                     Layout6

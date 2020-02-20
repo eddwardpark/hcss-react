@@ -24,6 +24,9 @@ export default function Component(props) {
     // layout
     const uLayout = useLayout(props.layout || '');
     const [layout, setLayout] = useState()
+    // position
+    const uPosition = usePosition(props.position || '');
+    const [position, setPosition] = useState()
 
     // EFFECT
     useEffect(() => {
@@ -49,6 +52,9 @@ export default function Component(props) {
         // layout
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.layout ]', props.layout )
         if (props.layout) { setLayout(uLayout) }
+        // position
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.position ]', props.position )
+        if (props.position) { setPosition(uPosition) }
     }, []);
     // RENDER
     return (
@@ -62,6 +68,7 @@ export default function Component(props) {
                 font,
                 shadow,
                 layout,
+                position,
                 props.style
             )}
         >
@@ -107,7 +114,7 @@ function useHcss(str) {
                 _array.push(obj)
             }
         });
-        //console.log(_array)
+        console.log(_array)
     };
 
     return _array;
@@ -365,13 +372,36 @@ function useLayout(str) {
             if (key[0] === 'x-wrap-stretch') { object.alignContent = 'flex-stretch' }
             if (key[0] === 'x-wrap-between') { object.alignContent = 'flex-between' }
             if (key[0] === 'x-wrap-around') { object.alignContent = 'flex-around' }
-
         })
     }
     //
     useEffect(() => {
         //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ layout ]', layout )
         process(layout)
+    },[])
+    return object;
+}
+
+// FUNC [ usePosition ]
+function usePosition(str) {
+    const object = {}
+    const position = useHcss(str);
+
+    // func process
+    function process(position) {
+        position.map((item) => {
+            const key = Object.keys(item)
+            const value = Object.values(item)
+            // position
+            if (key[0] === 'pos-relative') { object.position = 'relative' }
+            if (key[0] === 'pos-absolute') { object.position = 'absolute' }
+            if (key[0] === 'pos-fixed') { object.position = 'fixed' }
+        })
+    }
+    //
+    useEffect(() => {
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ position ]', position )
+        process(position)
     },[])
     return object;
 }
