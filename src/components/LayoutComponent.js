@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-//------------------------------ Component ------------------------------
-
+// COM
 export default function Component(props) {
+    // STATE
     // size
     const uSize = useSize(props.size || '');
     const [size, setSize] = useState()
@@ -21,7 +21,11 @@ export default function Component(props) {
     // shadow
     const uShadow = useShadow(props.shadow);
     const [shadow, setShadow] = useState()
+    // layout
+    const uLayout = useLayout(props.layout);
+    const [layout, setLayout] = useState()
 
+    // EFFECT
     useEffect(() => {
         // size
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.size ]', props.size )
@@ -42,8 +46,11 @@ export default function Component(props) {
         // shadow
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.shadow ]', props.shadow )
         if (props.shadow) { setShadow(uShadow) }
+        // layout
+        //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.layout ]', props.layout )
+        if (props.layout) { setLayout(uLayout) }
     }, []);
-
+    // RENDER
     return (
         <div
             {...props}
@@ -54,6 +61,7 @@ export default function Component(props) {
                 border,
                 font,
                 shadow,
+                layout,
                 props.style
             )}
         >
@@ -66,8 +74,7 @@ export default function Component(props) {
 
 
 
-//------------------------------  useHcss ------------------------------
-
+// FUNC [ useHcss ]
 function useHcss(str) {
     const _array = [];
 
@@ -106,8 +113,7 @@ function useHcss(str) {
     return _array;
 };
 
-//------------------------------ useSize ------------------------------
-
+// FUNC [ useSize ]
 function useSize(str) {
     const object = {}
     const size = useHcss(str);
@@ -136,8 +142,7 @@ function useSize(str) {
     return object;
 }
 
-//------------------------------ useColor ------------------------------
-
+// FUNC [ useColor ]
 function useColor(str) {
     const object = {}
     const color = useHcss(str);
@@ -199,8 +204,7 @@ function useColor(str) {
     return object;
 }
 
-//------------------------------ useSpace ------------------------------
-
+// FUNC [ useSpace ]
 function useSpace(str) {
     const object = {}
     const space = useHcss(str);
@@ -235,8 +239,7 @@ function useSpace(str) {
     return object;
 }
 
-//------------------------------ useBorder ------------------------------
-
+// FUNC [ useBorder ]
 function useBorder(str) {
     const object = {}
     const border = useHcss(str);
@@ -269,8 +272,7 @@ function useBorder(str) {
     return object;
 }
 
-//------------------------------ useFont ------------------------------
-
+// FUNC [ useFont ]
 function useFont(str) {
     const object = {}
     const font = useHcss(str);
@@ -298,8 +300,7 @@ function useFont(str) {
     return object;
 }
 
-//------------------------------ useShadow ------------------------------
-
+// FUNC [ useShadow ]
 function useShadow(str) {
     const object = {}
     const shadow = useHcss(str);
@@ -317,14 +318,48 @@ function useShadow(str) {
     }
 
     useEffect(() => {
-        //console.log('%c%s', 'color: green; background: transparent; shadow-size: 10px;', '[ shadow ]', shadow )
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ shadow ]', shadow )
         process(shadow)
     },[])
     return object;
 }
 
-//------------------------------ color list ------------------------------
+// FUNC [ useLayout ]
+function useLayout(str) {
+    const object = {}
+    const layout = useHcss(str);
 
+    // func process
+    function process(layout) {
+        layout.map((item) => {
+            const key = Object.keys(item)
+            const value = Object.values(item)
+            // layout
+            if (key[0] === 'fxh') { object.display = 'flex'; object.flexDirection = 'row'; object.justifyContent = 'center'; object.alignItems = 'center'; }
+            if (key[0] === 'fxv') { object.display = 'flex'; object.flexDirection = 'column'; object.justifyContent = 'center'; object.alignItems = 'center'; }
+            if (key[0] === 'x-hor') { object.display = 'flex'; object.flexDirection = 'row'; }
+            if (key[0] === 'x-ver') { object.display = 'flex'; object.flexDirection = 'column'; }
+            if (key[0] === 'x-as') { object.alignItems = 'flex-start'; }
+            if (key[0] === 'x-ac') { object.alignItems = 'center'; }
+            if (key[0] === 'x-ae') { object.alignItems = 'flex-end'; }
+            if (key[0] === 'x-ab') { object.alignItems = 'baseline'; }
+            if (key[0] === 'x-at') { object.alignItems = 'stretch'; }
+            if (key[0] === 'x-js') { object.justifyContent = 'flex-start'; }
+            if (key[0] === 'x-jc') { object.justifyContent = 'center'; }
+            if (key[0] === 'x-je') { object.justifyContent = 'flex-end'; }
+            if (key[0] === 'x-jb') { object.justifyContent = 'space-between'; }
+            if (key[0] === 'x-jt') { object.justifyContent = 'space-around'; }
+        })
+    }
+    //
+    useEffect(() => {
+        //console.log('%c%s', 'color: green; background: transparent; font-size: 10px;', '[ layout ]', layout )
+        process(layout)
+    },[])
+    return object;
+}
+
+// VAL [ colorList ]
 const colorList = {
     red50: '#FFEBEE',
     red100: '#FFCDD2',
