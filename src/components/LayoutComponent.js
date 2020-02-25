@@ -36,7 +36,7 @@ export default function Component(props) {
         // size
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.size ]', props.size )
         if (props.size !== 'none') { setSize(uSize) }
-        if (props.size === undefined) { setSize({width: '100%', height: '100%'}) }
+        if (props.size === undefined) { setSize(uSize) }
         // color
         //console.log('%c%s', 'color: blue; background: transparent; font-size: 12px;', '[ props.color ]', props.color )
         if (props.color) { setColor(uColor) }
