@@ -403,6 +403,7 @@ function usePosition(str) {
             if (key[0] === 'pos-relative') { object.position = 'relative' }
             if (key[0] === 'pos-absolute') { object.position = 'absolute' }
             if (key[0] === 'pos-fixed') { object.position = 'fixed' }
+            if (key[0] === 'pos-sticky') { object.position = 'sticky' }
             if (key[0] === 'pos-left') { object.top = '0%'; object.bottom = '0%'; object.left = '0%'; object.right = 'auto'; }
             if (key[0] === 'pos-right') { object.top = '0%'; object.bottom = '0%'; object.left = 'auto'; object.right = '0%'; }
             if (key[0] === 'pos-top') { object.top = '0%'; object.bottom = 'auto'; object.left = '0%'; object.right = '0%'; }
@@ -413,6 +414,10 @@ function usePosition(str) {
             if (key[0] === 'pos-bottom-right') { object.top = 'auto'; object.bottom = '0%'; object.left = 'auto'; object.right = '0%'; }
             if (key[0] === 'pos-z-') { object.zIndex = -Number(value) }
             if (key[0] === 'pos-z') { object.zIndex = Number(value) }
+            if (key[0] === 'top') { object.top = Number(value) }
+            if (key[0] === 'bottom') { object.bottom = Number(value) }
+            if (key[0] === 'left') { object.left = Number(value) }
+            if (key[0] === 'right') { object.right = Number(value) }
         })
     }
     //
